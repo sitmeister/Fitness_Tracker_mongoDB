@@ -1,3 +1,4 @@
+// creates the "last workout" by getting the last index of the workout array
 const API = {
   async getLastWorkout() {
     let res;
@@ -10,6 +11,9 @@ const API = {
 
     return json[json.length - 1];
   },
+  // location.search takes everything after the url.
+  // .split("=")[1] splits "key=value" and gives you the value only.
+  // fetches the unique id to edit... 
   async addExercise(data) {
     const id = location.search.split("=")[1];
 
@@ -23,6 +27,7 @@ const API = {
 
     return json;
   },
+// creates a new workout and inserts the data into a new empty object.
   async createWorkout(data = {}) {
     const res = await fetch("/api/workouts", {
       method: "POST",

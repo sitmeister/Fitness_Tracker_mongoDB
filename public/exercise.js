@@ -17,6 +17,7 @@ const newWorkout = document.querySelector(".new-workout")
 let workoutType = null;
 let shouldNavigateAway = false;
 
+// determines if it's a new exercise. if it's a new exercise, POST
 async function initExercise() {
   let workout;
 
@@ -32,6 +33,7 @@ async function initExercise() {
 
 initExercise();
 
+//from option form, adds and removes the correct form fields
 function handleWorkoutTypeChange(event) {
   workoutType = event.target.value;
 
@@ -49,6 +51,7 @@ function handleWorkoutTypeChange(event) {
   validateInputs();
 }
 
+//fields can't be blank
 function validateInputs() {
   let isValid = true;
 
@@ -95,6 +98,7 @@ function validateInputs() {
   }
 }
 
+//take in values for workoutData and then a Toast pop-up appears.
 async function handleFormSubmit(event) {
   event.preventDefault();
 
@@ -118,6 +122,7 @@ async function handleFormSubmit(event) {
   clearInputs();
   toast.classList.add("success");
 }
+
 
 function handleToastAnimationEnd() {
   toast.removeAttribute("class");

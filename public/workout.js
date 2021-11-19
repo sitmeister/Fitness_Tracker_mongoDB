@@ -1,3 +1,4 @@
+//gets info from lastWorkout and presents that workout's summary.
 async function initWorkout() {
   const lastWorkout = await API.getLastWorkout();
   console.log("Last workout:", lastWorkout);
@@ -19,6 +20,8 @@ async function initWorkout() {
   }
 }
 
+// passes exercises' values to the reduce method which takes sum + current val.
+// look how much i've lifted bruh
 function tallyExercises(exercises) {
   const tallied = exercises.reduce((acc, curr) => {
     if (curr.type === "resistance") {
@@ -33,6 +36,7 @@ function tallyExercises(exercises) {
   return tallied;
 }
 
+//https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date
 function formatDate(date) {
   const options = {
     weekday: "long",
